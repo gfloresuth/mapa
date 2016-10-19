@@ -1,0 +1,25 @@
+{
+  "name": "mapa",
+  "version": "1.0.0",
+  "description": "Mapa con google maps api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "dependencies": {
+    "express":"latest",
+    "body-parser":"latest",
+    "mysql":"latest",
+    "knex":"latest"
+  },
+  "keywords": [
+    "google",
+    "maps",
+    "api",
+    "nodejs",
+    "express"
+  ],
+  "author": "Gustavo Adolfo Flores González",
+  "license": "ISC"
+}

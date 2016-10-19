@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+      <form onsubmit="return false">
+          <button onclick="agregarMarcador()">Nuevo marcador</button>
+          <input type="text" id="txtLat" name="txtLat">
+          <input type="text" id="txtLng" name="txtLng">
+      </form>
+      <div id="divSalida"></div>
+    <div id="map"></div>
+    <script>
+
+var map;
+function agregarMarcador(){
+    var myLatLng = {lat: -34.397, lng: 150.644};
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!',
+    draggable: true
+    });  
+    marker.addListener('click',function(e){
+        var oDivSalida = document.getElementById('divSalida');
+        //alert('hola');
+        //console.log(e.latLng.lat());
+        var oTxtLat = document.getElementById('txtLat');
+        var oTxtLng = document.getElementById('txtLng');
+        oTxtLat.value = e.latLng.lat();
+        oTxtLng.value = e.latLng.lng();
+        oDivSalida.innerHTML = "hola " + e.latLng.lat() +" " + e.latLng.lng();
+    });
+}
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+    });
+    /*var myLatLng = {lat: -34.397, lng: 150.644};
+
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!',
+    draggable: true
+    });  
+    marker.addListener('click', function() {
+        alert('Hola');
+  });*/    
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=API-KEY&callback=initMap"
+        async defer></script>
+  </body>
+</html>
